@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col s3">
+            <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="username" type="text" class="validate" ng-model="username">
+                <label for="username">User Name</label>
+            </div>
+        </div>
+        <div class="col s6">
+            <!--<a class="btn-floating btn-large waves-effect waves-light red" ng-click="hello()">-->
+                <!--<i class="material-icons">add</i></a>-->
+            <table>
+                <thread>
+                    <th>id</th>
+                    <th ng-click="col='type';desc=!desc">type</th>
+                    <th ng-click="col='date';desc=!desc">date</th>
+                    <th ng-click="col='amount';desc=!desc">amount</th>
+                    <th ng-click="col='reason';desc=!desc">reason</th>
+                    <th>operate</th>
+                </thread>
+                <tbody>
+                    <tr ng-repeat="record in records |orderBy:col:desc" >
+                        <td ng-bind="$index+1"></td>
+                        <td ng-bind="record.type | uppercase"></td>
+                        <td ng-bind="record.date | date:'yyyy/MM/dd EEEE'"></td>
+                        <td ng-bind="record.amount | currency:'￥'"></td>
+                        <td ng-bind="record.reason"></td>
+                        <td><i class="tiny material-icons ">delete</i>
+                            <i class="tiny material-icons ">mode_edit</i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col s3">
+            <br />
+            <a ui-sref="edit" class="btn-floating btn-large waves-effect waves-light grey">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+</div>
